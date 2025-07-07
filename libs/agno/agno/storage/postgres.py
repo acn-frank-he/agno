@@ -51,6 +51,7 @@ class PostgresStorage(Storage):
             ValueError: If neither db_url nor db_engine is provided.
         """
         super().__init__(mode)
+        log_info("Initializing PostgresStorage...")
         _engine: Optional[Engine] = db_engine
         if _engine is None and db_url is not None:
             _engine = create_engine(db_url)
